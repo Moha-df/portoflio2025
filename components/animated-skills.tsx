@@ -88,7 +88,7 @@ export default function AnimatedSkills() {
   const [connections, setConnections] = useState<Connection[]>([])
   const [particles, setParticles] = useState<Particle[]>([])
   const [showingSoftSkills, setShowingSoftSkills] = useState(false)
-  const animationFrameRef = useRef<number>()
+  const animationFrameRef = useRef<number | undefined>(undefined)
   const lastTimeRef = useRef<number>(0)
   const dragPositionRef = useRef<{ x: number; y: number } | null>(null)
   const prevDragPositionRef = useRef<{ x: number; y: number } | null>(null)
