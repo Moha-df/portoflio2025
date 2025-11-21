@@ -1,103 +1,81 @@
-import Image from "next/image";
+"use client"
+
+import ProfileHeader from "@/components/profile-header"
+import ThreeList from "@/components/3list"
+import ChatbotWidget from "@/components/chatbot-widget"
+import ContactForm from "@/components/contact-form"
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const skills = [
+    { name: "ASSEMBLY", url: "https://en.wikipedia.org/wiki/Assembly_language" },
+    { name: "C", url: "https://en.wikipedia.org/wiki/C_(programming_language)" },
+    { name: "C++", url: "https://cplusplus.com/" },
+    { name: "JAVA", url: "https://www.java.com/" },
+    { name: "KOTLIN", url: "https://kotlinlang.org/" },
+    { name: "PYTHON", url: "https://www.python.org/" },
+    { name: "JAVASCRIPT", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript" },
+    { name: "TYPESCRIPT", url: "https://www.typescriptlang.org/" },
+    { name: "PHP", url: "https://www.php.net/" },
+    { name: "HTML", url: "https://developer.mozilla.org/en-US/docs/Web/HTML" },
+    { name: "CSS", url: "https://developer.mozilla.org/en-US/docs/Web/CSS" },
+    { name: "TAILWIND", url: "https://tailwindcss.com/" },
+    { name: "NEXT.JS", url: "https://nextjs.org/" },
+    { name: "REACT", url: "https://react.dev/" },
+    { name: "UE5", url: "https://www.unrealengine.com/" },
+    { name: "UNITY", url: "https://unity.com/" },
+    { name: "GODOT", url: "https://godotengine.org/" },
+    { name: "FIGMA", url: "https://www.figma.com/" },
+    { name: "AGILE", url: "https://en.wikipedia.org/wiki/Agile_software_development" },
+    { name: "ANDROID STUDIO", url: "https://developer.android.com/studio" },
+    { name: "SHELL", url: "https://en.wikipedia.org/wiki/Shell_script" },
+    { name: "APACHE", url: "https://httpd.apache.org/" },
+    { name: "WIRESHARK", url: "https://www.wireshark.org/" },
+    { name: "MONGODB", url: "https://www.mongodb.com/" },
+    { name: "MYSQL", url: "https://www.mysql.com/" },
+    { name: "MARIADB", url: "https://mariadb.org/" },
+    { name: "SQLITE", url: "https://www.sqlite.org/" },
+    { name: "OPENCV", url: "https://opencv.org/" },
+    { name: "PYTORCH", url: "https://pytorch.org/" },
+  ]
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+  const projects = [
+    { name: "CHATBOT", url: "https://chatbot.moha-df.fr" },
+    { name: "KIOSK ANDROID APP", url: "https://github.com/Moha-df/KioskAppAndroid" },
+    { name: "SCRABBLE MULTIPLAYER", url: "https://github.com/Moha-df/Scrabble-Godot" },
+    { name: "AUTH SECURITY", url: "https://github.com/Moha-df/Auth-Security-with-Next.js" },
+    { name: "SETUP WIZARD WINFORMS", url: "https://github.com/Moha-df/setup-wizard-winforms" },
+    { name: "TIERXVIEW", url: "https://www.moha-df.fr/tierxview" },
+    { name: "TABLETTESYSTEM", url: "https://www.moha-df.fr/tablettesystem" },
+    { name: "FRACTAL GENERATOR", url: "https://github.com/Moha-df/Fractal-Generator-React" },
+    { name: "JAVA 2D GAME", url: "https://github.com/Moha-df/Java2Dgame" },
+    { name: "PROCEDURAL MAP UNITY", url: "https://github.com/Moha-df/ProceduralMapUnity" },
+  ]
+
+  return (
+    <main className="min-h-screen bg-[#151312] overflow-x-hidden">
+      <div className="animate-[fadeInDown_0.8s_ease-out]">
+        <ProfileHeader />
+      </div>
+      <div className="animate-[fadeInDown_1s_ease-out_0.2s_both]">
+        <ThreeList 
+          items={skills}
+          title1="TECHNICAL"
+          title2="SKILLS"
+          showTitle={true}
+          backgroundColor="#151312"
+        />
+      </div>
+      <div className="animate-[fadeInDown_1.2s_ease-out_0.4s_both]">
+        <ThreeList 
+          items={projects}
+          title1="PROJETS"
+          title2="RÉALISÉS"
+          showTitle={true}
+          backgroundColor="#151312"
+        />
+      </div>
+      <ChatbotWidget />
+      <ContactForm />
+    </main>
+  )
 }
