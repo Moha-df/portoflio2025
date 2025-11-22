@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/log.svg",
+    icon: "/log.png",
   },
   metadataBase: new URL("https://www.moha-df.fr"),
   openGraph: {
