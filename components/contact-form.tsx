@@ -125,7 +125,7 @@ export default function ContactForm() {
   }
 
   return (
-    <section className="w-full bg-[#151312] py-20 px-6 md:px-12 lg:px-20">
+    <section id="contact" className="w-full bg-[#151312] py-20 px-6 md:px-12 lg:px-20">
       <div className="max-w-7xl mx-auto">
         {/* Title */}
         <div className="mb-12">
@@ -153,6 +153,10 @@ export default function ContactForm() {
               MOI
             </span>
           </h2>
+          <p className="mt-6 text-white/50 text-base md:text-lg max-w-2xl">
+            Une offre de stage, une question ou un projet&nbsp;? Écrivez-moi directement ici, je
+            réponds rapidement.
+          </p>
         </div>
 
         {/* Form */}
