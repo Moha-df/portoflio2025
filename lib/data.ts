@@ -1,3 +1,10 @@
+export const site = {
+  name: "Mohamed De Franceschi",
+  email: "contact@moha-df.fr",
+  github: "https://github.com/Moha-df",
+  linkedin: "", // à renseigner : URL du profil LinkedIn
+}
+
 export interface SkillGroup {
   label: string
   items: { name: string; url: string }[]

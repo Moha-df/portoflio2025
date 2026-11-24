@@ -5,7 +5,7 @@
 
 :root {
   /* Changed to pure black theme */
-  --background: oklch(0 0 0);
+  --background: #151312;
   --foreground: oklch(1 0 0);
   --card: oklch(0.05 0 0);
   --card-foreground: oklch(1 0 0);
@@ -76,8 +76,8 @@
 }
 
 @theme inline {
-  --font-sans: "Geist", "Geist Fallback";
-  --font-mono: "Geist Mono", "Geist Mono Fallback";
+  --font-sans: var(--font-geist-sans), "Geist", "Geist Fallback", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), "Geist Mono", "Geist Mono Fallback", ui-monospace, monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -121,7 +121,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
   }
 }
 
@@ -223,4 +223,36 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+@layer base {
+  ::selection {
+    background: #ffffff;
+    color: #151312;
+  }
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+  section[id] {
+    scroll-margin-top: 2rem;
+  }
+  :focus-visible {
+    outline: 2px solid rgb(255 255 255 / 0.7);
+    outline-offset: 3px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

@@ -6,10 +6,10 @@ import ChatbotWidget from "@/components/chatbot-widget"
 import { getProject, projects } from "@/lib/projects"
 
 const titleStyle = {
-  fontFamily: "'Poppins', sans-serif",
+  fontFamily: "var(--font-geist-sans), sans-serif",
   fontSize: "clamp(38px, 6.5vw, 78px)",
-  fontWeight: 1000,
-  letterSpacing: "0em",
+  fontWeight: 800,
+  letterSpacing: "-0.04em",
   lineHeight: "100%",
   color: "#ffffff",
 } as const

@@ -20,9 +20,6 @@ export default function InternshipBanner() {
     <section id="stage" className="w-full bg-[#151312] px-6 md:px-12 lg:px-20 pb-20">
       <div className="max-w-7xl mx-auto">
         <div className="relative overflow-hidden rounded-2xl border border-[#B6B4BD]/25 bg-white/[0.04] p-8 md:p-12">
-          {/* Liseré d'accent */}
-          <span aria-hidden="true" className="absolute inset-y-0 left-0 w-1 bg-white/70" />
-
           <div className="flex flex-wrap items-center gap-3 mb-6">
             <span className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-3 py-1.5 text-xs md:text-sm font-bold uppercase tracking-[0.15em] text-white/90">
               <span className="relative flex w-2 h-2">

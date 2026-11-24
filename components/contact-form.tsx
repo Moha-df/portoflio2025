@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import SiteLinks from "@/components/site-links"
 
 interface ContactFormData {
   email: string
@@ -131,20 +132,20 @@ export default function ContactForm() {
         <div className="mb-12">
           <h2 className="mb-0">
             <span className="block leading-none mb-2" style={{
-              fontFamily: "'Poppins', sans-serif",
-              fontSize: "clamp(48px, 8vw, 94px)",
-              fontWeight: 1000,
-              letterSpacing: "0em",
+              fontFamily: "var(--font-geist-sans), sans-serif",
+              fontSize: "clamp(34px, 8vw, 84px)",
+              fontWeight: 800,
+              letterSpacing: "-0.04em",
               lineHeight: "100%",
               color: "#ffffff",
             }}>
               CONTACTER
             </span>
             <span className="block leading-none" style={{
-              fontFamily: "var(--font-family, 'Poppins', sans-serif)",
-              fontSize: "clamp(48px, 8vw, 94px)",
-              fontWeight: 1000,
-              letterSpacing: "0em",
+              fontFamily: "var(--font-geist-sans), sans-serif",
+              fontSize: "clamp(34px, 8vw, 84px)",
+              fontWeight: 800,
+              letterSpacing: "-0.04em",
               lineHeight: "1.2em",
               textAlign: "start",
               color: "#B6B4BD",
@@ -154,16 +155,18 @@ export default function ContactForm() {
             </span>
           </h2>
           <p className="mt-6 text-white/50 text-base md:text-lg max-w-2xl">
-            Une offre de stage, une question ou un projet&nbsp;? Écrivez-moi directement ici, je
-            réponds rapidement.
+            Une offre de stage, une question ou un projet&nbsp;? Écrivez-moi par email ou via le
+            formulaire ci-dessous.
           </p>
         </div>
+
+        <SiteLinks className="mb-12" />
 
         {/* Form */}
         <form onSubmit={handleContactSubmit} className="space-y-6 max-w-3xl">
           {/* Error Message */}
           {errorMessage && (
-            <div className="bg-black border-2 border-white rounded-lg p-4 animate-[fadeIn_0.3s_ease-out]">
+            <div className="rounded-lg border border-red-400/40 bg-red-400/[0.06] p-4 animate-[fadeIn_0.3s_ease-out]">
               <p className="text-white font-medium"> {errorMessage}</p>
             </div>
           )}
@@ -179,7 +182,7 @@ export default function ContactForm() {
               required
               value={contactForm.email}
               onChange={(e) => setContactForm((prev) => ({ ...prev, email: e.target.value }))}
-              className="w-full px-4 py-3 bg-[#1a1918] border-2 border-[#B6B4BD]/20 rounded-lg focus:border-[#B6B4BD] focus:outline-none transition-colors text-white placeholder:text-white/30"
+              className="w-full px-4 py-3 bg-[#1a1918] border border-[#B6B4BD]/20 rounded-lg focus:border-[#B6B4BD] focus:outline-none transition-colors text-white placeholder:text-white/30"
               placeholder="votre@email.com"
               disabled={submitState === "loading"}
             />
@@ -196,7 +199,7 @@ export default function ContactForm() {
               required
               value={contactForm.subject}
               onChange={(e) => setContactForm((prev) => ({ ...prev, subject: e.target.value }))}
-              className="w-full px-4 py-3 bg-[#1a1918] border-2 border-[#B6B4BD]/20 rounded-lg focus:border-[#B6B4BD] focus:outline-none transition-colors text-white placeholder:text-white/30"
+              className="w-full px-4 py-3 bg-[#1a1918] border border-[#B6B4BD]/20 rounded-lg focus:border-[#B6B4BD] focus:outline-none transition-colors text-white placeholder:text-white/30"
               placeholder="Sujet de votre message"
               disabled={submitState === "loading"}
             />
@@ -212,7 +215,7 @@ export default function ContactForm() {
               required
               value={contactForm.message}
               onChange={(e) => setContactForm((prev) => ({ ...prev, message: e.target.value }))}
-              className="w-full px-4 py-3 bg-[#1a1918] border-2 border-[#B6B4BD]/20 rounded-lg focus:border-[#B6B4BD] focus:outline-none transition-colors resize-none text-white placeholder:text-white/30"
+              className="w-full px-4 py-3 bg-[#1a1918] border border-[#B6B4BD]/20 rounded-lg focus:border-[#B6B4BD] focus:outline-none transition-colors resize-none text-white placeholder:text-white/30"
               placeholder="Votre message..."
               rows={8}
               disabled={submitState === "loading"}
@@ -258,12 +261,12 @@ export default function ContactForm() {
           <button
             type="submit"
             disabled={submitState === "loading" || submitState === "success"}
-            className="w-full py-4 px-6 rounded-lg font-black text-lg text-[#0a0908] bg-white hover:bg-[#B6B4BD] disabled:bg-[#B6B4BD]/50 disabled:cursor-not-allowed transition-colors duration-200"
+            className="inline-flex items-center justify-center py-3.5 px-8 rounded-lg font-bold text-base text-[#0a0908] bg-white hover:bg-[#B6B4BD] disabled:bg-[#B6B4BD]/50 disabled:cursor-not-allowed transition-colors duration-200"
           >
-            {submitState === "loading" && "ENVOI EN COURS..."}
-            {submitState === "success" && "✓ MESSAGE ENVOYÉ !"}
-            {submitState === "error" && "✗ ERREUR - RÉESSAYER"}
-            {submitState === "idle" && "ENVOYER"}
+            {submitState === "loading" && "Envoi en cours…"}
+            {submitState === "success" && "Message envoyé"}
+            {submitState === "error" && "Échec de l'envoi — réessayer"}
+            {submitState === "idle" && "Envoyer le message"}
           </button>
         </form>
       </div>

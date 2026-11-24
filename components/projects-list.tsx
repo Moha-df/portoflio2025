@@ -5,19 +5,19 @@ import Link from "next/link"
 import { projects } from "@/lib/projects"
 
 const titleStyle = {
-  fontFamily: "'Poppins', sans-serif",
-  fontSize: "clamp(48px, 8vw, 94px)",
-  fontWeight: 1000,
-  letterSpacing: "0em",
+  fontFamily: "var(--font-geist-sans), sans-serif",
+  fontSize: "clamp(34px, 8vw, 84px)",
+  fontWeight: 800,
+  letterSpacing: "-0.04em",
   lineHeight: "100%",
   color: "#ffffff",
 } as const
 
 const subTitleStyle = {
-  fontFamily: "var(--font-family, 'Poppins', sans-serif)",
-  fontSize: "clamp(48px, 8vw, 94px)",
-  fontWeight: 1000,
-  letterSpacing: "0em",
+  fontFamily: "var(--font-geist-sans), sans-serif",
+  fontSize: "clamp(34px, 8vw, 84px)",
+  fontWeight: 800,
+  letterSpacing: "-0.04em",
   lineHeight: "1.2em",
   textAlign: "start",
   color: "#B6B4BD",
