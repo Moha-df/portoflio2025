@@ -1,5 +1,6 @@
 "use client"
 
+import { useState } from "react"
 import Link from "next/link"
 
 import { projects } from "@/lib/projects"
@@ -25,6 +26,19 @@ const subTitleStyle = {
 } as const
 
 export default function ProjectsList() {
+  const [activeTag, setActiveTag] = useState<string | null>(null)
+  const counts = new Map<string, number>()
+  projects.forEach((project) =>
+    project.tags.forEach((tag: string) => counts.set(tag, (counts.get(tag) ?? 0) + 1)),
+  )
+  const tags = Array.from(counts)
+    .filter(([, count]) => count > 1)
+    .sort((a, b) => b[1] - a[1])
+    .map(([tag]) => tag)
+  const visible = activeTag
+    ? projects.filter((project) => (project.tags as readonly string[]).includes(activeTag))
+    : projects
+
   return (
     <section id="projets" className="w-full bg-[#151312] py-20 px-6 md:px-12 lg:px-20">
       <div className="max-w-7xl mx-auto">
@@ -42,8 +56,26 @@ export default function ProjectsList() {
           et sécurité. Cliquez sur un projet pour lire son détail.
         </p>
 
+        <div className="mb-8 flex flex-wrap gap-2" role="group" aria-label="Filtrer les projets par technologie">
+          {[null, ...tags].map((tag) => (
+            <button
+              key={tag ?? "all"}
+              type="button"
+              aria-pressed={activeTag === tag}
+              onClick={() => setActiveTag(tag)}
+              className={`rounded-full border px-3.5 py-1.5 text-sm font-medium transition-colors duration-200 ${
+                activeTag === tag
+                  ? "border-white bg-white text-[#151312]"
+                  : "border-[#B6B4BD]/25 text-[#B6B4BD]/80 hover:border-white/60 hover:text-white"
+              }`}
+            >
+              {tag ?? "Tous"}
+            </button>
+          ))}
+        </div>
+
         <ul className="border-t border-[#B6B4BD]/15">
-          {projects.map((project, index) => (
+          {visible.map((project, index) => (
             <li key={project.slug} className="border-b border-[#B6B4BD]/15">
               <Link
                 href={`/projets/${project.slug}`}

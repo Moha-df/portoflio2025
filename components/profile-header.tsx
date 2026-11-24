@@ -1,4 +1,5 @@
 import SiteLinks from "@/components/site-links"
+import { PaletteButton } from "@/components/command-palette"
 
 const nav = [
   { label: "Stage", href: "#stage" },
@@ -23,7 +24,10 @@ export default function ProfileHeader() {
           aria-label="Navigation principale"
           className="flex items-center justify-between gap-6 border-b border-[#B6B4BD]/15 py-5"
         >
-          <span className="font-mono text-sm text-white/70">moha-df.fr</span>
+          <div className="flex items-center gap-4">
+            <span className="font-mono text-sm text-white/70">moha-df.fr</span>
+            <PaletteButton />
+          </div>
           <ul className="flex items-center gap-5 md:gap-8 text-sm font-medium text-white/60">
             {nav.map((item) => (
               <li key={item.href} className={item.href === "#contact" ? undefined : "hidden sm:block"}>
